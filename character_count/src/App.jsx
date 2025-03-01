@@ -1,7 +1,7 @@
 import HeaderSection from "./components/HeaderSection";
 import HeroSection from "./components/HeroSection";
 import Input from "./components/Input";
-import Card from "./components/Card";
+import DisplayCount from "./components/DisplayCount";
 import LetterDensity from "./components/LetterDensity";
 import CharacterProvider from "./context/CharacterContextProvider";
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <HeaderSection />
         <HeroSection />
         <Input />
-        <Card />
+        <DisplayCount />
         <LetterDensity />
       </CharacterProvider>
     </div>
