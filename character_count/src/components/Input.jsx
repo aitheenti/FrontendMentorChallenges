@@ -12,7 +12,7 @@ const Input = () => {
   } = useContext(CharacterContext);
 
   return (
-    <div className="flex flex-col flex-wrap content-center w-full mt-5 mb-5">
+    <div className="flex flex-col flex-wrap content-center w-full mt-5 mb-5 p-2">
       <textarea
         className="w-full p-4 border border-black-300 rounded focus:border-blue-500 h-40 bg-[#d9d9d9] "
         maxLength={characterLimit ? 1000 : null}

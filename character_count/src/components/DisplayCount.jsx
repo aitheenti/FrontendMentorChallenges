@@ -8,7 +8,7 @@ import WordCountPattern from "../assets/images/pattern-word-count.svg";
 const DisplayCount = () => {
   const { state } = useContext(CharacterContext);
   return (
-    <div className="flex h-60 items-center">
+    <div className="flex h-60 flex-grow items-center">
       <div className="w-1/3">
         <Card
           bgColor={"#A496F3"}

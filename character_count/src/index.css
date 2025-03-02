@@ -1,7 +1,55 @@
 @import "tailwindcss";
 
-html {
-    width: 80%;
-    margin: 0 auto;
-    height: 100vh;
+:root {
+  --background-color: #FFF;
+  --text-color: #333;
+  --primary-color: #d9d9d9;
 }
+
+html {
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+html .dark-mode {
+  background-color: #333;
+}
+
+body {
+  max-width: 80vw;
+  margin: auto;
+  background-color: #FFF;
+  color: #333;
+}
+
+.dark-mode body {
+  background-color: #333;
+  color: #FFF;
+}
+
+.dark-mode {
+  --background-color: #333;
+  --text-color: #FFF;
+  --primary-color: #fff;
+}
+
+
+.app {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.densitySection .dark-mode {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+textarea {
+  background-color: var(--primary-color);
+  color: #333;
+}
+
+textarea .dark-mode {
+  color: #FFF;
+}
+

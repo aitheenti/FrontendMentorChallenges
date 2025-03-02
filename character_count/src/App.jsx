@@ -6,7 +6,9 @@ import LetterDensity from "./components/LetterDensity";
 import CharacterProvider from "./context/CharacterContextProvider";
 function App() {
   return (
-    <div className="flex flex-col flex-wrap p-5">
+    <div
+      className={"min-h-screen flex flex-col flex-wrap w-full items-stretch"}
+    >
       <CharacterProvider>
         <HeaderSection />
         <HeroSection />

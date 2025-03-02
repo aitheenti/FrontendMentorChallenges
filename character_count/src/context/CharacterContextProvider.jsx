@@ -22,6 +22,7 @@ const CharacterProvider = ({ children }) => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+    document.body.classList.toggle("dark-mode");
   };
   const getUpdatedCharacterInfo = (text) => {
     if (text.trim() === "") {
@@ -75,27 +76,33 @@ const CharacterProvider = ({ children }) => {
   };
 
   return (
-    <CharacterContext.Provider
-      value={{
-        state,
-        setState,
-        darkMode,
-        characterLimit,
-        inputValue,
-        letterDensitySet,
-        displayAllLetterDensities,
-        excludeSpaces,
-        setExcludeSpaces,
-        setDisplayAllLetterDensities,
-        getLetterDensity,
-        setInputValue,
-        handleInputChange,
-        setCharacterLimit,
-        toggleDarkMode,
-      }}
+    <div
+      className={`app ${
+        darkMode ? "transition-colors duration-500 dark-mode" : ""
+      } transition-colors duration-500  p-5`}
     >
-      {children}
-    </CharacterContext.Provider>
+      <CharacterContext.Provider
+        value={{
+          state,
+          setState,
+          darkMode,
+          characterLimit,
+          inputValue,
+          letterDensitySet,
+          displayAllLetterDensities,
+          excludeSpaces,
+          setExcludeSpaces,
+          setDisplayAllLetterDensities,
+          getLetterDensity,
+          setInputValue,
+          handleInputChange,
+          setCharacterLimit,
+          toggleDarkMode,
+        }}
+      >
+        {children}
+      </CharacterContext.Provider>
+    </div>
   );
 };
 

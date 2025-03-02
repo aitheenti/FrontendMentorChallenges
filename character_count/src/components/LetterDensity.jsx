@@ -7,16 +7,19 @@ const LetterDensity = () => {
     letterDensitySet,
     setDisplayAllLetterDensities,
   } = useContext(CharacterContext);
-  console.log(letterDensitySet);
+
   return (
     <div className="w-full">
       <div className="text-2xl font-bold"> Letter Density</div>
       <div className="densitySection">
         {letterDensitySet?.length > 0 ? (
           displayAllLetterDensities ? (
-            letterDensitySet.map((letter) => {
+            letterDensitySet.map((letter, index) => {
               return (
-                <div className="flex justify-evenly h-5 m-3" key={letter}>
+                <div
+                  className="flex justify-evenly h-5 m-3"
+                  key={`${letter}-${index}`}
+                >
                   <div>{letter.letter[0].toUpperCase()}</div>
                   <div className="w-full rounded-2xl border-1 m-1 bg-purple-400"></div>
                   <div>{letter.percentage}</div>
@@ -24,9 +27,12 @@ const LetterDensity = () => {
               );
             })
           ) : (
-            letterDensitySet.slice(0, 5).map((letter) => {
+            letterDensitySet.slice(0, 5).map((letter, index) => {
               return (
-                <div className="flex justify-evenly h-5 m-3" key={letter}>
+                <div
+                  className="flex justify-evenly h-5 m-3"
+                  key={`${letter}-${index}`}
+                >
                   <div>{letter.letter[0].toUpperCase()}</div>
                   <div className="w-full rounded-2xl border-1 m-1 bg-purple-400"></div>
                   <div>{letter.percentage}</div>
@@ -47,7 +53,7 @@ const LetterDensity = () => {
           }
           className="rounded-lg border-1 p-1 w-30 text-lg"
         >
-          See more
+          {displayAllLetterDensities ? "Show less" : "Show more"}
         </button>
       )}
     </div>
