@@ -7,17 +7,18 @@
 }
 
 .faqSection {
-  top: 0;
   margin: auto;
   justify-content: center;
   width: 50%;
   border: 1px solid black;
   border-radius: 1rem;
   padding: 2rem;
-}
-.faqSection {
   display: flex;
   flex-flow: column wrap;
+  position: absolute;
+  background-color: #fff;
+  top: 10rem;
+  left: 25rem;
 }
 
 .faqHeader {
@@ -40,4 +41,15 @@ button {
   border-radius: 2rem;
   border: transparent;
   background: transparent;
+}
+
+.starIcon {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.bodySection {
+  background-color: #ffdfffad;
+  height: 100vh;
 }

@@ -81,8 +81,12 @@ function App() {
       <div className="headerSection"></div>
       <div className="faqSection">
         <div className="faqHeader">
-          <img src={StarIcon} alt="star icon" />
-          <h1>FAQs</h1>
+          <div className="starIcon">
+            <img src={StarIcon} alt="star icon" />
+          </div>
+          <div>
+            <h1>FAQs</h1>
+          </div>
         </div>
         {faqData.map((faqSet) => {
           return (
@@ -109,7 +113,7 @@ function App() {
                   <h2>{faqSet.answer}</h2>
                 </div>
               </div>
-              <hr />
+              <hr style={{ width: "100%", border: "0.5px solid gray" }} />
             </>
           );
         })}
