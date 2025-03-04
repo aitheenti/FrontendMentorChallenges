@@ -1,0 +1,43 @@
+.headerSection {
+  background-image: url("assets/images/background-pattern-desktop.svg");
+  background-color: aquamarine;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25rem;
+}
+
+.faqSection {
+  top: 0;
+  margin: auto;
+  justify-content: center;
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.faqSection {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.faqHeader {
+  flex-flow: row wrap;
+  display: inherit;
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+}
+
+.faqContainerCollapsed {
+  max-height: 5rem;
+  overflow: hidden;
+}
+
+button {
+  max-height: 3rem;
+  border-radius: 2rem;
+  border: transparent;
+  background: transparent;
+}
