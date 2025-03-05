@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background-color: #FFF;
+  --background-color: #fff;
   --text-color: #333;
   --primary-color: #d9d9d9;
 }
 
 html {
   height: 100vh;
+  width: 100vw;
   background-color: var(--background-color);
 }
 
@@ -16,23 +17,22 @@ html .dark-mode {
 }
 
 body {
-  max-width: 80vw;
+  padding: 0 10rem;
   margin: auto;
-  background-color: #FFF;
+  background-color: #fff;
   color: #333;
 }
 
 .dark-mode body {
   background-color: #333;
-  color: #FFF;
+  color: #fff;
 }
 
 .dark-mode {
   --background-color: #333;
-  --text-color: #FFF;
+  --text-color: #fff;
   --primary-color: #fff;
 }
-
 
 .app {
   background-color: var(--background-color);
@@ -50,6 +50,5 @@ textarea {
 }
 
 textarea .dark-mode {
-  color: #FFF;
+  color: #fff;
 }
-
