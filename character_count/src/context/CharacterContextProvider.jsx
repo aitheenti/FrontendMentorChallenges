@@ -3,6 +3,7 @@ import CharacterContext from "./CharacterContext";
 const CharacterProvider = ({ children }) => {
   const [inputValue, setInputValue] = useState("");
   const [characterLimit, setCharacterLimit] = useState(false);
+  const [characterLimitValue, setCharacterLimitValue] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
   const [letterDensitySet, setLetterDensitySet] = useState([]);
   const [excludeSpaces, setExcludeSpaces] = useState(false);
@@ -59,8 +60,8 @@ const CharacterProvider = ({ children }) => {
     }, {});
 
     const getLetterDensityArray = Object.entries(letterDensitySet)?.map(
-      (key, value) => {
-        const count = value;
+      (key) => {
+        const count = key[1];
         const percentage =
           ((count / matchedTextToArray.length) * 100).toFixed(2) + "%";
         return {
@@ -70,7 +71,7 @@ const CharacterProvider = ({ children }) => {
         };
       }
     );
-
+    console.log(getLetterDensityArray);
     setLetterDensitySet(getLetterDensityArray);
     return getLetterDensityArray;
   };
@@ -87,10 +88,12 @@ const CharacterProvider = ({ children }) => {
           setState,
           darkMode,
           characterLimit,
+          characterLimitValue,
           inputValue,
           letterDensitySet,
           displayAllLetterDensities,
           excludeSpaces,
+          setCharacterLimitValue,
           setExcludeSpaces,
           setDisplayAllLetterDensities,
           getLetterDensity,

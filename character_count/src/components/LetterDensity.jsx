@@ -23,10 +23,11 @@ const LetterDensity = () => {
                   <div>{letter.letter[0].toUpperCase()}</div>
                   <div className="rounded-2xl border-1 m-1 bg-gray-300 w-full">
                     <div
-                      className={`rounded-2xl border-2 m-1 bg-purple-400 w-${letter.percentage.replace(
+                      className={`w-full rounded-2xl border-2 m-1 text-purple-400 w-${letter.percentage.replace(
                         "%",
                         ""
                       )}`}
+                      style={{ width: `${letter.percentage}` }}
                     ></div>
                   </div>
                   <div>{letter.percentage}</div>

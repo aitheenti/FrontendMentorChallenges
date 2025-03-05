@@ -4,18 +4,20 @@ import CharacterContext from "../context/CharacterContext";
 const Input = () => {
   const {
     characterLimit,
+    characterLimitValue,
     excludeSpaces,
     inputValue,
     handleInputChange,
     setExcludeSpaces,
     setCharacterLimit,
+    setCharacterLimitValue,
   } = useContext(CharacterContext);
 
   return (
     <div className="flex flex-col flex-wrap content-center w-full mt-5 mb-5 p-2">
       <textarea
         className="w-full p-4 border border-black-300 rounded focus:border-blue-500 h-40 bg-[#d9d9d9] "
-        maxLength={characterLimit ? 1000 : null}
+        maxLength={characterLimit ? characterLimitValue : null}
         value={inputValue}
         onChange={(e) => handleInputChange(e)}
       />
@@ -38,6 +40,14 @@ const Input = () => {
               onClick={() => setCharacterLimit(!characterLimit)}
             />
             <label for="characterLimit">Set Character Limits</label>
+            {characterLimit && (
+              <input
+                value={characterLimitValue}
+                type="text"
+                onChange={(e) => setCharacterLimitValue(e.target.value)}
+                className="ml-10 w-15 "
+              />
+            )}{" "}
           </div>
         </div>
         <div>Approx reading time - 1 minute</div>
