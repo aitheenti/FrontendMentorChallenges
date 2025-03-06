@@ -9,6 +9,7 @@ const CharacterProvider = ({ children }) => {
   const [excludeSpaces, setExcludeSpaces] = useState(false);
   const [displayAllLetterDensities, setDisplayAllLetterDensities] =
     useState(false);
+  const [readingTime, setReadingTime] = useState(0);
   const [state, setState] = useState({
     totalCharacterCount: 0,
     sentenceCount: 0,
@@ -19,6 +20,7 @@ const CharacterProvider = ({ children }) => {
     setInputValue(value);
     getLetterDensity(value);
     getUpdatedCharacterInfo(value);
+    calculateReadingTime(value);
   };
 
   const toggleDarkMode = () => {
@@ -76,6 +78,14 @@ const CharacterProvider = ({ children }) => {
     return getLetterDensityArray;
   };
 
+  const calculateReadingTime = (text) => {
+    const wordsPerMinute = 200;
+    const wordCount = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute) + " minutes";
+    setReadingTime(readingTime);
+    return readingTime;
+  };
+
   return (
     <div
       className={`app ${
@@ -93,6 +103,8 @@ const CharacterProvider = ({ children }) => {
           letterDensitySet,
           displayAllLetterDensities,
           excludeSpaces,
+          readingTime,
+          calculateReadingTime,
           setCharacterLimitValue,
           setExcludeSpaces,
           setDisplayAllLetterDensities,

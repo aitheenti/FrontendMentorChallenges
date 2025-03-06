@@ -3,6 +3,7 @@ import CharacterContext from "../context/CharacterContext";
 
 const Input = () => {
   const {
+    readingTime,
     characterLimit,
     characterLimitValue,
     excludeSpaces,
@@ -50,7 +51,7 @@ const Input = () => {
             )}{" "}
           </div>
         </div>
-        <div>Approx reading time - 1 minute</div>
+        <div>Approx reading time - {readingTime}</div>
       </div>
     </div>
   );
