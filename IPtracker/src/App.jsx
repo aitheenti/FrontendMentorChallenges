@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import "./App.css";
 
 function App() {
   const [geoLocationInfo, setGeoLocationInfo] = useState({});
   const [ipvalue, setIpvalue] = useState("");
   const [inputFormatError, setInputFormatError] = useState(false);
-  const [coordinates, setCoordinates] = useState([0, 0]);
+  const [coordinates, setCoordinates] = useState([40.71427, -74.00597]);
 
   const handleChange = (e) => {
     const inputText = e.target.value;
@@ -59,59 +59,7 @@ function App() {
 
   return (
     <>
-      <div className="heroSection"> </div>
-      <div id="detailsContainer">
-        <div className="searchInputContainer">
-          <form onSubmit={handleFormSubmit}>
-            <input
-              type="text"
-              value={ipvalue}
-              inputMode="numeric"
-              onChange={(e) => handleChange(e)}
-              className="searchInput"
-            />
-          </form>
-
-          <img
-            src="/src/assets/images/icon-arrow.svg"
-            alt="arrow"
-            className="arrow-icon"
-          />
-
-          {inputFormatError && (
-            <div style={{ color: "red" }}>
-              Invalid input format. Please enter only numbers and decimal
-              points.
-            </div>
-          )}
-        </div>
-
-        <div className="infoContainer">
-          <div>
-            <h3 htmlFor="ip">IP Address</h3>
-            <h2>{geoLocationInfo?.ip}</h2>
-          </div>
-          <hr />
-          <div>
-            <h3 htmlFor="location">Location</h3>
-            <h2>
-              {geoLocationInfo?.location?.region},{" "}
-              {geoLocationInfo?.location?.country}
-            </h2>
-          </div>
-          <hr />
-          <div>
-            <h3 htmlFor="timezone">Timezone</h3>
-            <h2>{geoLocationInfo?.location?.timezone}</h2>
-          </div>
-          <hr />
-          <div>
-            <h3 htmlFor="timezone">ISP</h3>
-            <h2>{geoLocationInfo?.isp}</h2>
-          </div>
-        </div>
-      </div>
-
+      <div className="heroSection"></div>
       <div id="map">
         {coordinates !== null ? (
           <MapContainer center={coordinates} zoom={15} scrollWheelZoom={false}>
@@ -129,6 +77,57 @@ function App() {
         ) : (
           <div>Loading...</div>
         )}
+      </div>
+      <div className="mainSection">
+        <div className="heading">IP Address Tracker</div>
+        <div id="detailsContainer">
+          <div className="searchInputContainer">
+            <form onSubmit={handleFormSubmit}>
+              <input
+                type="text"
+                value={ipvalue}
+                inputMode="numeric"
+                onChange={(e) => handleChange(e)}
+                className="searchInput"
+              />
+              <button className="arrow-icon">
+                <img src="/src/assets/images/icon-arrow.svg" alt="arrow" />
+              </button>
+            </form>
+
+            {inputFormatError && (
+              <div style={{ color: "red" }}>
+                Invalid input format. Please enter only numbers and decimal
+                points.
+              </div>
+            )}
+          </div>
+
+          <div className="infoContainer">
+            <div>
+              <h3 htmlFor="ip">IP Address</h3>
+              <h2>{geoLocationInfo?.ip}</h2>
+            </div>
+            <hr />
+            <div>
+              <h3 htmlFor="location">Location</h3>
+              <h2>
+                {geoLocationInfo?.location?.region},{" "}
+                {geoLocationInfo?.location?.country}
+              </h2>
+            </div>
+            <hr />
+            <div>
+              <h3 htmlFor="timezone">Timezone</h3>
+              <h2>{geoLocationInfo?.location?.timezone}</h2>
+            </div>
+            <hr />
+            <div>
+              <h3 htmlFor="timezone">ISP</h3>
+              <h2>{geoLocationInfo?.isp}</h2>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

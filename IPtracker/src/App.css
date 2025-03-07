@@ -4,14 +4,23 @@
   height: 30vh;
 }
 
-#map {
-  height: 70vh;
-  width: 100vw;
+.leaflet-container {
+  height: 80vh;
 }
 
-.leaflet-container {
-  width: 80vw;
-  height: 80vh;
+.heading {
+  position: absolute;
+  top: 2%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+h3 {
+  color: gray;
 }
 
 input:invalid {
@@ -20,18 +29,19 @@ input:invalid {
 }
 
 #detailsContainer {
-  display: flex;
-  flex-flow: column wrap;
-  background: white;
-  position: absolute;
-  top: 20%;
+  top: 16%;
   margin: auto;
-  left: 21%;
-  width: 60%;
+  left: 13%;
+  width: 70%;
+  background-color: white;
+  position: absolute;
   height: 19rem;
   padding: 3rem;
   z-index: 410;
   border-radius: 25px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
 }
 
 .infoContainer {
@@ -41,34 +51,33 @@ input:invalid {
   width: 100%;
 }
 
-.searchInput {
-  width: 100%;
-  height: 40px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 2rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+form {
+  background: grey;
+  border-radius: 25px;
+  position: relative;
 }
 
-.searchInput::after {
-  background-image: url("./assets/images/icon-arrow.svg");
-  color: black;
-  width: 100%;
-  padding: 12px 40px 12px 12px; /* Adjust right padding for icon space */
-  background: url("searchicon.png") no-repeat right center;
-  background-size: 20px; /* Adjust based on icon size */
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+input {
+  width: 92%;
+  height: 100%;
+  display: block;
+  border-radius: 25px;
+  font-size: 20px;
+  padding: 8px 40px 8px 20px;
+  border: none;
+  box-shadow: 0 2px 3px 1px black;
 }
 
-.arrow-icon {
-  width: 20%;
-  height: 65%;
-  padding: 12px 40px 12px 12px;
-  background: url(searchicon.png) no-repeat right center;
+button {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  transform: scale(1.1);
+  height: 100%;
+  cursor: pointer;
+  background: black;
 }
+
 .searchInput:focus {
   border-color: #aaa;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
