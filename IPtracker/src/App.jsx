@@ -25,8 +25,10 @@ function App() {
       `https://geo.ipify.org/api/v2/country,city?apiKey=at_UlIz701pA0XdcRdIMGLztdSPNGMwt&ipAddress=${ipvalue}`
     )
       .then((resp) => resp.json())
-      .then((data) => setGeoLocationInfo(data));
-    console.log("response", geoLocationInfo);
+      .then((data) => {
+        setGeoLocationInfo(data);
+        setCoordinates([data.location.lat, data.location.lng]);
+      });
   };
 
   useEffect(() => {
@@ -47,16 +49,17 @@ function App() {
 
     useEffect(() => {
       if (map) {
-        map.setView([40.71427, -74.00597], map.getZoom());
+        map.setView(coordinates, map.getZoom());
       }
     }, [map]);
 
     return null;
   }
+  console.log(coordinates);
+
   return (
     <>
       <div className="heroSection"> </div>
-      {/* {geoLocationInfo && ( */}
       <div id="detailsContainer">
         <div className="searchInputContainer">
           <form onSubmit={handleFormSubmit}>
@@ -108,7 +111,6 @@ function App() {
           </div>
         </div>
       </div>
-      {/* )} */}
 
       <div id="map">
         {coordinates !== null ? (
