@@ -1,0 +1,71 @@
+.App {
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.advice-header {
+  color: #3cc383;
+  text-transform: uppercase;
+}
+
+.advice-text {
+  text-align: center;
+  color: white;
+}
+
+.advice-card {
+  border-radius: 2%;
+  padding: 5%;
+  background-color: #282c34;
+  max-width: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.dice-background {
+  background-color: #3cc383;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.dice {
+  position: relative;
+  top: 18%;
+  display: flex;
+  max-height: 2rem;
+}
+
+#dice-icon {
+  position: absolute;
+  top: 1.7rem;
+  left: 1.7rem;
+  text-align: center;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .advice-card {
+    border-radius: 2%;
+    padding: 5%;
+    background-color: #282c34;
+    max-width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+}
