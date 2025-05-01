@@ -1,0 +1,222 @@
+@font-face {
+  font-family: "NotoSans-Regular";
+  src: url("./assets/fonts/NotoSans-Regular.ttf") format("ttf");
+}
+@font-face {
+  font-family: "NotoSans-Medium";
+  src: url("./assets/fonts/NotoSans-Medium.ttf") format("ttf");
+}
+@font-face {
+  font-family: "NotoSans-Bold";
+  src: url("./assets/fonts/NotoSans-Bold.ttf") format("ttf");
+}
+
+html {
+  list-style: none;
+}
+
+:root {
+  --primary-color: #fff;
+  background-color: aliceblue;
+}
+
+.dark {
+  --primary-color: #fff;
+  background-color: linear-gradient(#050a1c, #091337);
+}
+
+.dark * {
+  color: var(--primary-color);
+}
+
+img.logo {
+  filter: invert(1);
+}
+
+body {
+  height: 100vh;
+  background: aliceblue;
+  font-family: "NotoSans-Regular", sans-serif;
+  margin: 0 auto;
+}
+body.dark-mode {
+  background: linear-gradient(#050a1c, #091337);
+}
+
+.appContainer.dark {
+  color: white;
+}
+
+.appContainer {
+  max-width: 80%;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  gap: 1rem;
+  padding-top: 1rem;
+  justify-content: space-evenly;
+}
+
+.extensionCardFooter,
+.extensionCardBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.extensionCardText {
+  margin: 0 1rem 2rem 1rem;
+  color: var(--primary-color);
+}
+
+.extensionCardHeaderText {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.extensionCard {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #404559;
+  max-width: 20rem;
+  flex-flow: column wrap;
+  background: #1f2535;
+  border-radius: 5%;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#extensionsList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.logo-section {
+  background: #1f2535;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.completionStates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.stateButton {
+  border-radius: 1rem;
+  padding: 0.7rem;
+  margin: 0.3rem;
+  border: 1px solid #cccccc;
+  background: var(--primary-color);
+}
+
+.stateButton.dark {
+  background-color: white;
+  color: white;
+}
+
+/* Or using parent .dark to scope all children */
+.dark .stateButton {
+  background-color: black;
+  color: white;
+}
+
+/* switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ff5d5d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.dark button {
+  border: 1px solid;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1f2535;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.attribution {
+  text-align: center;
+}
+
+.attribution.dark {
+  color: white;
+}
