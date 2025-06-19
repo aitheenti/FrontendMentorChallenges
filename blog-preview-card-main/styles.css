@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/static/Figtree-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/static/Figtree-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/Figtree-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 400 800; /* If variable font supports a range */
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 800; /* If variable font supports a range */
+  font-style: normal;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+:root {
+  --primary-yellow: hsl(47, 88%, 63%);
+  --border-radius: 1rem;
+}
+
+html {
+  background-color: var(--primary-yellow);
+}
+
+body {
+  font-family: "Figtree", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.card-container {
+  box-shadow: 10px 8px #000;
+}
+
+.card-image,
+.card-container {
+  border-radius: 1rem;
+}
+
+.card-image {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.card-container {
+  background-color: white;
+  max-width: 375px;
+  padding: 1.5rem;
+  border: 2px solid black;
+}
+
+.author-name,
+.chip,
+h2 {
+  font-weight: 800;
+}
+
+.chip {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 0.5rem;
+  max-width: 4rem;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: var(--primary-yellow);
+  margin: 1rem 0;
+}
+
+.published-date {
+  font-weight: 600;
+}
+
+.caption-elements {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+p {
+  color: hsl(0, 0%, 42%);
+  font-size: large;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-body-title:hover {
+  color: var(--primary-yellow);
+  cursor: pointer;
+}
