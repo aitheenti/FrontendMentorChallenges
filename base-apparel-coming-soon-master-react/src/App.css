@@ -1,0 +1,70 @@
+#root {
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+#logo {
+  transform: scale(1);
+}
+
+#topSection {
+  display: flex;
+}
+
+#formSection {
+  background: url("../public/images/bg-pattern-desktop.svg");
+  display: flex;
+  flex-flow: column wrap;
+  padding: 7rem;
+  justify-content: space-evenly;
+  align-content: start;
+}
+
+#emailWithInput {
+  display: flex;
+}
+
+#emailWithInput input[type="email"] {
+  flex: 1;
+  padding-right: 48px; /* space for the button if overlapping */
+}
+
+#submitArrow {
+  margin-left: -3.2rem;
+  z-index: 1;
+  background-color: hsl(0, 74%, 74%);
+  border-radius: 20%;
+  transform: scale(1.5, 1);
+  padding: 1rem;
+}
+
+#email {
+  box-shadow: none;
+  border-radius: 1rem;
+}
+
+.error {
+  color: red;
+}
+
+h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.largeText {
+  color: hsl(0, 36%, 70%);
+  font-weight: 100;
+}
+
+p {
+  color: hsl(0, 36%, 70%);
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Conference ticket generator</title>
+
+  <style>
+    @font-face {
+      font-family: "Inconsolata";
+      src: url("./assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf") format("truetype");
+      font-weight: 100 900;
+      font-style: normal;
+    }
+
+    html {
+      background-image:
+        url('./assets/images/pattern-squiggly-line-top.svg'), url('./assets/images/pattern-squiggly-line-bottom-desktop.svg'), url('./assets/images/pattern-lines.svg'), url('./assets/images/pattern-circle.svg'), url('./assets/images/background-desktop.png');
+      background-position:
+        top right,
+        bottom left,
+        center,
+        center,
+        center;
+      background-size:
+        40%,
+        30%,
+        cover,
+        cover,
+        cover;
+
+      background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat;
+      color: white;
+      height: 100vh;
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    #ticketForm,
+    #imageUploadContainer {
+      display: flex;
+      flex-flow: column wrap;
+      width: 25rem;
+      margin: auto;
+    }
+
+    .uploadSection:hover {
+      background-color: #130f60;
+    }
+
+    body {
+      font-family: 'Inconsolata', monospace;
+    }
+
+    body input {
+      height: 2rem;
+      border-radius: 5px;
+    }
+
+    .inputError {
+      border-color: red
+    }
+
+    /* body input:hover {
+      height: 2rem;
+      border-radius: 5px;
+    } */
+
+    input[type="file"] {
+      display: none;
+    }
+
+    #imageUploadIcon {
+      background-color: #4d4c4c;
+      border-radius: 10px;
+    }
+
+    .inputGroup {
+      display: flex;
+      flex-flow: column;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    #generateBtn {
+      height: 2.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      background: #f57564;
+      color: black;
+      border-radius: 5px;
+    }
+
+    .title {
+      font-size: 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .formContainer {
+      text-align: center;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-evenly;
+    }
+
+    .uploadSection {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      border: 2px dashed #aaa;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      width: 300px;
+      border-radius: 8px;
+      transition: background 0.2s ease-in-out;
+    }
+
+    .titleContainer {
+      margin: 2rem 18rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0
+    }
+
+    #appLogo {
+      margin: 1rem 0;
+    }
+
+    .avatarText {
+      text-align: left;
+    }
+
+    .flexRowItem {
+      display: flex;
+      gap: 2;
+    }
+
+    #fileErrorMessage,
+    #nameError,
+    #emailError,
+    #usernameError {
+      display: none;
+      color: red;
+    }
+
+    #imagePreview {
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    #removeBtn {
+      display: none;
+      margin: 1rem;
+      width: 9rem;
+      height: 2rem;
+      background: cornflowerblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="formContainer">
+    <div id="appLogo">
+      <img src="./assets/images/logo-full.svg" alt="coding conf">
+    </div>
+    <div class="titleContainer">
+      <h1 id="eventTitle">Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <h2>Secure your spot at next year's biggest coding conference.</h2>
+    </div>
+
+    <form id="ticketForm" method="POST" onsubmit="handleSubmit(event)">
+      <section id="imageUploadContainer">
+        <h3 class="avatarText"> Upload Avatar</h3>
+        <div class="uploadSection" role="button" aria-describedby="uploadHint" aria-label="Upload avatar image">
+          <img src="./assets/images/icon-upload.svg" alt="upload to the cloud" height="50px" width="50px"
+            id="cloudUploadIcon">
+          <input type="file" accept="image/*" id="imageUploadInput" tabindex="1">
+          <img id="imagePreview" style="display:none; max-height:150px; margin-top:10px;" />
+          <label id="uploadText">Drag and drop or click to upload</label>
+          <button class="remove-btn no-upload-trigger" id="removeBtn" tabindex="5">Remove</button>
+          <p id="fileErrorMessage"></p>
+        </div>
+        <div class="flexRowItem">
+          <img src="./assets/images/icon-info.svg" alt="info icon">
+          <p>Upload your photo (JPG or PNG, max size: 500KB).</h5>
+        </div>
+      </section>
+
+      <div class="inputGroup">
+        <label for="fullName" aria-label="">Full Name</label>
+        <input type="text" tabindex="2" placeholder="Enter your Full Name" name="fullName" id="fullName" required
+          aria-live="polite" minlength="6">
+        <p id="nameError">Please enter full name.</p>
+      </div>
+      <div class="inputGroup">
+        <label for="email">Email Address</label>
+        <input type="email" tabindex="3" placeholder="test@gmail.com" name="email" id="email" required>
+        <p id="emailError">Please enter valid email address.</p>
+      </div>
+      <div class="inputGroup">
+        <label for="username">GitHub Username</label>
+        <input type="text" tabindex="4" placeholder="@your username" name="username" id="username" required
+          pattern="^[A-Za-z0-9]{6,12}$">
+        <p id="usernameError">Please enter github username.</p>
+      </div>
+      <button id="generateBtn" tabindex="5" type="submit">Generate my Ticket</button>
+    </form>
+    <!-- Form ends -->
+
+    <!-- Generated tickets starts -->
+
+    Congrats, <!-- Full Name -->! Your ticket is ready.
+
+    We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
+
+    Coding Conf
+    Jan 31, 2025 / Austin, TX
+
+    <!-- Generated tickets ends -->
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
